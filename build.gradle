@@ -1,5 +1,5 @@
 apply plugin: 'war'
-apply plugin: 'eclipse'
+apply plugin: 'org.akhikhl.gretty'
 
 sourceCompatibility = 1.8
 version = '1.0'
@@ -8,17 +8,11 @@ repositories {
 	mavenCentral()
 }
 
-eclipse {
-	classpath {
-		downloadJavadoc = true
-		downloadSources = true
-	}
-}
-
 dependencies {		    
 	testCompile 'org.assertj:assertj-core:3.8.0'
 	testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:2.8.47"
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile group: 'com.google.inject', name: 'guice', version: '4.0'
 }
 
@@ -30,7 +24,6 @@ buildscript {
         classpath 'org.akhikhl.gretty:gretty:2.0.0'
     }
 }
-apply plugin: 'org.akhikhl.gretty'
 
 compileJava.options.encoding = 'ISO-8859-1'
 
